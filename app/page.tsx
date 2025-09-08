@@ -73,7 +73,7 @@ export default function HomePage() {
           className="text-center mb-12"
         >
           <Badge variant="secondary" className="mb-4">
-            SIH 2024 Hackathon Project
+            IIC Hackathon Project
           </Badge>
           <h2 className="text-4xl font-bold text-foreground mb-4">Welcome to Railway Fitting Management System</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -168,8 +168,8 @@ export default function HomePage() {
       <footer className="border-t bg-card/50 backdrop-blur-sm mt-20">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
-            <p className="text-muted-foreground">© 2024 Railway Fitting Management System</p>
-            <Badge variant="outline">Team HackStreet</Badge>
+            <p className="text-muted-foreground">© 2025 Railway Fitting Management System</p>
+            <Badge variant="outline">Team HackStreet Boys</Badge>
           </div>
         </div>
       </footer>
