@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+watchfiles
+scikit-learn
+pandas
+joblib
+lightgbm

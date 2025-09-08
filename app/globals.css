@@ -1,0 +1,184 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color palette for Indian Railways theme */
+  --background: oklch(1 0 0); /* White background */
+  --foreground: oklch(0.25 0.08 258); /* Deep blue #003DA5 */
+  --card: oklch(0.97 0.01 240); /* Light gray #F1F5F9 */
+  --card-foreground: oklch(0.35 0.02 240); /* Dark gray #4B5563 */
+  --popover: oklch(1 0 0); /* White */
+  --popover-foreground: oklch(0.25 0.08 258); /* Deep blue */
+  --primary: oklch(0.25 0.08 258); /* Deep blue #003DA5 */
+  --primary-foreground: oklch(1 0 0); /* White */
+  --secondary: oklch(0.7 0.15 45); /* Saffron #FF9933 */
+  --secondary-foreground: oklch(1 0 0); /* White */
+  /* Fixed muted-foreground contrast - changed from very light to darker gray for better readability */
+  --muted: oklch(0.45 0.02 240); /* Muted gray #6B7280 */
+  --muted-foreground: oklch(0.45 0.02 240); /* Changed to darker gray for proper contrast */
+  --accent: oklch(0.7 0.15 45); /* Saffron accent */
+  --accent-foreground: oklch(0.25 0.08 258); /* Deep blue on accent */
+  --destructive: oklch(0.55 0.2 25); /* Error red #EA580C */
+  --destructive-foreground: oklch(1 0 0); /* White */
+  --border: oklch(0.9 0.01 240); /* Light border #E5E7EB */
+  --input: oklch(0.97 0.01 240); /* Input background */
+  --ring: oklch(0.25 0.08 258 / 0.25); /* Focus ring with transparency */
+  --chart-1: oklch(0.25 0.08 258); /* Deep blue */
+  --chart-2: oklch(0.7 0.15 45); /* Saffron */
+  --chart-3: oklch(0.45 0.02 240); /* Gray */
+  --chart-4: oklch(0.55 0.2 25); /* Red */
+  --chart-5: oklch(0.35 0.02 240); /* Dark gray */
+  --radius: 0.5rem;
+  --sidebar: oklch(0.97 0.01 240); /* Light sidebar */
+  --sidebar-foreground: oklch(0.25 0.08 258); /* Deep blue text */
+  --sidebar-primary: oklch(0.25 0.08 258); /* Deep blue */
+  --sidebar-primary-foreground: oklch(1 0 0); /* White */
+  --sidebar-accent: oklch(0.7 0.15 45); /* Saffron */
+  --sidebar-accent-foreground: oklch(0.25 0.08 258); /* Deep blue */
+  --sidebar-border: oklch(0.9 0.01 240); /* Light border */
+  --sidebar-ring: oklch(0.7 0.15 45 / 0.25); /* Saffron focus ring */
+}
+
+.dark {
+  /* Dark theme with Railway colors */
+  --background: oklch(0.1 0.02 258); /* Dark blue background */
+  --foreground: oklch(0.95 0.01 240); /* Light text */
+  --card: oklch(0.15 0.02 258); /* Darker card background */
+  --card-foreground: oklch(0.9 0.01 240); /* Light card text */
+  --popover: oklch(0.15 0.02 258); /* Dark popover */
+  --popover-foreground: oklch(0.95 0.01 240); /* Light popover text */
+  --primary: oklch(0.7 0.15 45); /* Saffron primary in dark */
+  --primary-foreground: oklch(0.1 0.02 258); /* Dark text on saffron */
+  --secondary: oklch(0.25 0.08 258); /* Deep blue secondary */
+  --secondary-foreground: oklch(0.95 0.01 240); /* Light text */
+  --muted: oklch(0.3 0.02 258); /* Muted in dark */
+  --muted-foreground: oklch(0.7 0.01 240); /* Muted text */
+  --accent: oklch(0.7 0.15 45); /* Saffron accent */
+  --accent-foreground: oklch(0.1 0.02 258); /* Dark text on accent */
+  --destructive: oklch(0.6 0.25 25); /* Brighter red in dark */
+  --destructive-foreground: oklch(0.95 0.01 240); /* Light text */
+  --border: oklch(0.25 0.02 258); /* Dark border */
+  --input: oklch(0.2 0.02 258); /* Dark input */
+  --ring: oklch(0.7 0.15 45 / 0.4); /* Saffron focus ring */
+  --chart-1: oklch(0.7 0.15 45); /* Saffron */
+  --chart-2: oklch(0.5 0.12 200); /* Blue variant */
+  --chart-3: oklch(0.6 0.1 120); /* Green variant */
+  --chart-4: oklch(0.6 0.25 25); /* Red */
+  --chart-5: oklch(0.7 0.2 300); /* Purple variant */
+  --sidebar: oklch(0.12 0.02 258); /* Dark sidebar */
+  --sidebar-foreground: oklch(0.9 0.01 240); /* Light sidebar text */
+  --sidebar-primary: oklch(0.7 0.15 45); /* Saffron primary */
+  --sidebar-primary-foreground: oklch(0.1 0.02 258); /* Dark text */
+  --sidebar-accent: oklch(0.25 0.08 258); /* Deep blue accent */
+  --sidebar-accent-foreground: oklch(0.95 0.01 240); /* Light text */
+  --sidebar-border: oklch(0.25 0.02 258); /* Dark border */
+  --sidebar-ring: oklch(0.7 0.15 45 / 0.4); /* Saffron focus */
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* Added smooth transitions for theme changes */
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+/* Added custom animations for enhanced user experience */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(255, 153, 51, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 153, 51, 0.6);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-2px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(2px);
+  }
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
