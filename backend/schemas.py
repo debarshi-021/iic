@@ -132,6 +132,16 @@ class FactoryDeployResponse(BaseModel):
     failed_uids: List[str]
     ml_predictions: List[dict]
 
+# Frontend compatibility deploy schema (no UI change)
+class FactoryDeployCompat(BaseModel):
+    batch_id: str
+    zone_code: str
+    line_id: str
+    km_start: float
+    km_end: float
+    priority: str
+    deployment_date: Optional[date] = None
+
 # ML Prediction schemas
 class MLPredictionCreate(BaseModel):
     fitting_id: int

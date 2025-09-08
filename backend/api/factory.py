@@ -7,7 +7,7 @@ import asyncio
 from db import get_db
 from schemas import (
     FactoryDeployBatch, FactoryDeployResponse,
-    DeploymentCreate, MLPredictionCreate
+    DeploymentCreate, MLPredictionCreate, FactoryDeployCompat
 )
 from crud import (
     get_fitting_by_uid, create_fitting, create_deployment,
@@ -165,3 +165,27 @@ async def get_deployments(
     from models import Deployment
     deployments = db.query(Deployment).offset(skip).limit(limit).all()
     return deployments
+
+@router.post("/deploy_batch_compat", response_model=FactoryDeployResponse)
+async def deploy_batch_compat(
+    data: FactoryDeployCompat,
+    db: Session = Depends(get_db)
+):
+    # Compatibility adapter: map frontend payload into uids list and defaults
+    # For demo, generate 3 UIDs within the specified zone and batch id
+    from utils import generate_uid
+    today = data.deployment_date or datetime.now().date()
+    uids = [
+        generate_uid(vendor_code="V001", batch=data.batch_id, serial=i, zone_code=data.zone_code)
+        for i in range(1, 4)
+    ]
+    req = FactoryDeployBatch(
+        uids=uids,
+        deployment_date=today,
+        installation_zone=data.zone_code,
+        line_id=data.line_id,
+        km_start=data.km_start,
+        km_end=data.km_end,
+    )
+    # Reuse main deploy logic
+    return await deploy_batch(req, db)

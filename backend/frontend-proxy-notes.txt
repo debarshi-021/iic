@@ -1,0 +1,4 @@
+Set NEXT_PUBLIC_API_URL to http://localhost:5000 so lib/api.ts targets the FastAPI backend.
+
+
+
