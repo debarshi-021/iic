@@ -1,9 +1,8 @@
 fastapi
-uvicorn
+uvicorn[standard]
 sqlmodel
-sqlalchemy
-pydantic
 pandas
 openpyxl
 httpx
 python-dotenv
+watchdog
